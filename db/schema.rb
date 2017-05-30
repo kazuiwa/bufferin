@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170528100847) do
+ActiveRecord::Schema.define(version: 20170526140157) do
 
   create_table "records", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
     t.string   "registered_date",     limit: 12
     t.string   "registered_division", limit: 1
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
 end
