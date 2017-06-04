@@ -3,12 +3,12 @@ $(function(){
         var time_now = get_time_now_timestamp();
         $.ajax({
             url: "/attendances/regist",
-            type: "GET",
+            type: "POST",
             data: {
                 time_now: time_now,
                 division_id: "1"
             },
-            dataType: "xml",
+            dataType: "json",
             success: function(data) {
                 alert("出勤時間を登録しました。");
                 $(".square_btn_s").prop("disabled", true);
@@ -26,12 +26,12 @@ $(function(){
         var time_now = get_time_now_timestamp();
         $.ajax({
             url: "/attendances/regist",
-            type: "GET",
+            type: "POST",
             data: {
                 time_now: time_now,
                 division_id: "2"
             },
-            dataType: "xml",
+            dataType: "json",
             success: function(data) {
                 alert('退勤時間を登録しました。');
                 $(".square_btn_e").prop("disabled", true);

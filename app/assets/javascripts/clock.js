@@ -52,6 +52,17 @@ jQuery(function($) {
             }
             if(sec < 10) {
                 sec = "0" + sec;
+                //$('body').css({
+                //    backgroundImage: 'url("app/assets/images/4.jpg")'
+                //});
+                //document.body.style.backgroundImage='url("../images/4.jpg")';
+                //$("body").css('color', 'black');
+            //} else {
+                //$("body").css('background-image', 'url(../images/4.jpg)');
+                //$('body').css({
+                //    backgroundImage: 'url("app/assets/images/4.jpg")'
+                //});
+                //document.body.style.backgroundImage='url("../images/4.jpg")';
             }
             var time_str = hour + "時" + min + "分" + sec + "秒";
 

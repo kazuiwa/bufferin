@@ -13,11 +13,11 @@
 ActiveRecord::Schema.define(version: 20170526140157) do
 
   create_table "records", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "registered_date",     limit: 12
-    t.string   "registered_division", limit: 1
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string   "for_test"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

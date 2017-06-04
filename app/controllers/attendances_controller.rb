@@ -1,9 +1,31 @@
 # coding: utf-8
 class AttendancesController < ApplicationController
-  def regist
-    regist_time = Record.new()
-    regist_time.registered_date = params[:time_now]
-    regist_time.registered_division = params[:division_id]
-    regist_time.save
+  def new
+    @record = Record.new
+  end
+  def create
+    @record = Record.new(record_params)
+    if @record.valid?
+      @record.save!(validate:false)
+      redirect_to new_attendance_path, notice: '登録が完了しました。'
+    else
+      render "new"
+    end
+  end
+
+
+  #　出勤・退勤ボタン押下時のアクション
+  #def regist
+  #  regist_time = Record.new()
+  #  regist_time.registered_date = params[:time_now]
+  #  regist_time.registered_division = params[:division_id]
+  #  regist_time.save
+  #end
+
+  private
+  def record_params
+    params.require(:record).permit(
+        :start_time
+    )
   end
 end

@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'attendances#index'
-  resources :attendances do
-    collection { get "regist" }
-  end
+  root to: 'attendances#new'
+  resources :attendances
+  #post 'attendances/regist' => 'attendances#regist'
 end
