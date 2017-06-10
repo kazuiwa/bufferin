@@ -5,6 +5,7 @@ class AttendancesController < ApplicationController
   end
   def create
     @record = Record.new(record_params)
+    @record.set_record_params
     if @record.valid?
       @record.save!(validate:false)
       redirect_to new_attendance_path, notice: '登録が完了しました。'
@@ -12,20 +13,10 @@ class AttendancesController < ApplicationController
       render "new"
     end
   end
-
-
-  #　出勤・退勤ボタン押下時のアクション
-  #def regist
-  #  regist_time = Record.new()
-  #  regist_time.registered_date = params[:time_now]
-  #  regist_time.registered_division = params[:division_id]
-  #  regist_time.save
-  #end
-
   private
   def record_params
     params.require(:record).permit(
-        :start_time
+        :start_datetime
     )
   end
 end

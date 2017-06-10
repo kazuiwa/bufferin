@@ -13,11 +13,12 @@
 ActiveRecord::Schema.define(version: 20170526140157) do
 
   create_table "records", force: :cascade do |t|
-    t.datetime "start_time"
-    t.datetime "end_time"
-    t.string   "for_test"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "year_month"
+    t.datetime "start_datetime"
+    t.datetime "end_datetime"
+    t.float    "working_hours"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
 end

@@ -12,7 +12,7 @@
 <div style="text-align: center; margin-top: 50px;">
 <%= form_for @record,:url => {:action => :create} do |f| %>
   <div>
-  <%= f.datetime_select :start_time,
+  <%= f.datetime_select :start_datetime,
         start_year: 2016, end_year: Time.now.year,
         use_month_numbers: true %>
   </div>
@@ -20,6 +20,4 @@
     <%= f.submit '登録' %>
   </div>
 <% end %>
-
-
 </div>
