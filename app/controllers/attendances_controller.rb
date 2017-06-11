@@ -13,6 +13,9 @@ class AttendancesController < ApplicationController
       render "new"
     end
   end
+  def show
+    @records = Record.where("year_month = ?", params[:id])
+  end
   private
   def record_params
     params.require(:record).permit(

@@ -1,6 +1,5 @@
 #coding: utf-8
 class Record < ApplicationRecord
-  belongs_to :year_month
 
   #---------------------------------
   # バリデーション
@@ -24,8 +23,7 @@ class Record < ApplicationRecord
   # インスタンス変数にパラメータをセット
   def set_record_params
     # 年月カラムの値をセット
-    target_year_month = YearMonth.find(self.start_datetime.strftime('%Y%m').to_i)
-    self.year_month = target_year_month
+    self.year_month = self.start_datetime.strftime('%Y%m').to_i
   end
 
   #---------------------------------
