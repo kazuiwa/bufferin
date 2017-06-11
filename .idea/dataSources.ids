@@ -13,12 +13,14 @@
     </table>
     <table name="records" schema="" catalog="" type="TABLE">
       <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="year_month" sqlType="INTEGER(6)" precision="0" scale="-1" nullable="true" jdbcType="4"/>
-      <column name="start_time" sqlType="TIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
-      <column name="end_time" sqlType="TIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="year_month_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="start_datetime" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="end_datetime" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="working_hours" sqlType="FLOAT" precision="0" scale="-1" nullable="true" jdbcType="6"/>
       <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
       <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
       <primary-key columns="id"/>
+      <index name="index_records_on_year_month_id" unique="true" columns="year_month_id"/>
     </table>
     <table name="schema_migrations" schema="" catalog="" type="TABLE">
       <column name="version" sqlType="VARCHAR" precision="0" scale="-1" nullable="false" jdbcType="12"/>
@@ -27,6 +29,12 @@
     <table name="sqlite_sequence" schema="" catalog="" type="TABLE">
       <column name="name" sqlType="" precision="0" scale="-1" nullable="true" jdbcType="12"/>
       <column name="seq" sqlType="" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="year_months" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
     </table>
   </data-source>
 </component>

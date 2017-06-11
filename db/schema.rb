@@ -10,15 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170526140157) do
+ActiveRecord::Schema.define(version: 20170611013358) do
 
   create_table "records", force: :cascade do |t|
-    t.string   "year_month"
+    t.integer  "year_month_id"
     t.datetime "start_datetime"
     t.datetime "end_datetime"
     t.float    "working_hours"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.index ["year_month_id"], name: "index_records_on_year_month_id"
+  end
+
+  create_table "year_months", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
