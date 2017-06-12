@@ -1,5 +1,8 @@
 # coding: utf-8
 class AttendancesController < ApplicationController
+  def index
+
+  end
   def new
     @record = Record.new
     @this_year_month = Time.now.strftime("%Y%m").to_i
