@@ -6,8 +6,7 @@ class AttendancesController < ApplicationController
   def create
     @record = Record.new(record_params)
     @record.set_record_params
-    if @record.valid?
-      @record.save!(validate:false)
+    if @record.save
       redirect_to new_attendance_path, notice: '登録が完了しました。'
     else
       render "new"
