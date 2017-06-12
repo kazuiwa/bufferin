@@ -2,6 +2,7 @@
 class AttendancesController < ApplicationController
   def new
     @record = Record.new
+    @this_year_month = Time.now.strftime("%Y%m").to_i
   end
   def create
     @record = Record.new(record_params)
