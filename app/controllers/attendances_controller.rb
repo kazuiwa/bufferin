@@ -11,8 +11,8 @@ class AttendancesController < ApplicationController
       render "new"
     end
   end
-  def show
-    @records = Record.where("year_month = ?", params[:id])
+  def list
+    @records = Record.where("year_month = ?", params[:yyyymm])
   end
   private
   def record_params
