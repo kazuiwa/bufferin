@@ -20,16 +20,28 @@ class Record < ApplicationRecord
   #---------------------------------
   # インスタンスメソッド
   #---------------------------------
-  # インスタンス変数にパラメータをセット
-  def set_record_params
-    # 年月カラムの値をセット
-    self.year_month = self.start_datetime.strftime('%Y%m').to_i
+  # 初期表示時のデフォルト値をセットしたインスタンスを生成
+  def set_default_value
+    self.year_month = Time.now.strftime('%Y%m').to_i
   end
 
   #---------------------------------
   # クラスメソッド
   #---------------------------------
   class << self
+    # デフォルト値がセットされたインスタンス変数を生成
+    def new_with_default_value
+      record = self.new
+      record.set_default_value
+      record
+    end
 
+    # 登録する値をセットしたインスタンスを生成
+    def new_with_regist_value(params)
+      record = self.new(params)
+      # 入力フォームにない年月カラムの値をセット
+      record.year_month = record.start_datetime.strftime('%Y%m').to_i
+      record
+    end
   end
 end

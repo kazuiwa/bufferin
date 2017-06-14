@@ -1,15 +1,10 @@
 # coding: utf-8
 class AttendancesController < ApplicationController
-  def index
-
-  end
   def new
-    @record = Record.new
-    @this_year_month = Time.now.strftime("%Y%m").to_i
+    @record = Record.new_with_default_value
   end
   def create
-    @record = Record.new(record_params)
-    @record.set_record_params
+    @record = Record.new_with_regist_value(record_params)
     if @record.save
       redirect_to new_attendance_path, notice: '登録が完了しました。'
     else

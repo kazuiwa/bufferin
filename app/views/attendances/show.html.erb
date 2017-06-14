@@ -1,8 +1,8 @@
-<% @records.each do |record| %>
-  <table>
-    <tr>
-      <th>出勤時間</th>
-      <td><%= record.start_datetime.strftime('%Y年%m月%d日 %H:%M:%S') %></td>
-    </tr>
-  </table>
-<% end %>
+<table>
+  <% @records.each do |record| %>
+  <tr>
+    <th>出勤時間</th>
+    <td><%= record.start_datetime.strftime('%Y年%m月%d日 %H:%M:%S') %></td>
+  </tr>
+  <% end %>
+</table>
