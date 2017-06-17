@@ -20,5 +20,5 @@
     <%= f.submit '登録' %>
   </div>
 <% end %>
-  <%= link_to "一覧へ", controller: "attendances", action: "list", yyyymm: @record.year_month %>
+  <%= link_to "一覧へ", list_path(@record.year_month) %>
 </div>

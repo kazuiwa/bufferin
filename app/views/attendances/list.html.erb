@@ -1,8 +1,22 @@
+<h2><%= @records.first.start_datetime.strftime('%Y年%m月') %></h2>
 <table>
+  <thead>
+    <tr>
+      <th>出勤日</th>
+      <th>時間</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
   <% @records.each do |record| %>
-      <tr>
-        <th>出勤時間</th>
-        <td><%= record.start_datetime.strftime('%Y年%m月%d日 %H:%M:%S') %></td>
-      </tr>
+    <tr>
+      <td><%= record.start_datetime.strftime('%d日') %></td>
+      <td><%= record.start_datetime.strftime('%H:%M') %>〜18:00</td>
+      <td>
+        <%= link_to "編集", edit_attendance_path(record) %>
+      </td>
+    </tr>
   <% end %>
+  </tbody>
 </table>
+<%= link_to "←戻る", controller: "attendances", action: "new" %>

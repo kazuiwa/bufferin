@@ -11,6 +11,18 @@ class AttendancesController < ApplicationController
       render "new"
     end
   end
+  def edit
+    @record = Record.find(params[:id])
+  end
+  def update
+    @record = Record.find(params[:id])
+    @record.assign_attributes(record_params)
+    if @record.save
+      redirect_to list_path(@record.year_month), :notice => '更新が完了しました。'
+    else
+      render "edit"
+    end
+  end
   def list
     @records = Record.where("year_month = ?", params[:yyyymm])
   end

@@ -12,7 +12,7 @@ class Record < ApplicationRecord
     target_day_start = Time.new(start_datetime.strftime('%Y'), start_datetime.strftime('%m'), start_datetime.strftime('%d'))
     target_day_end = target_day_start.tomorrow
     registered = Record.where("start_datetime between ? and ?", target_day_start, target_day_end)
-    if registered.present?
+    if registered.present? && id != registered.first.id
       errors.add(:start_datetime, "既に登録されています。")
     end
   end

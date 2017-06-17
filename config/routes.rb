@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   root to: 'attendances#new'
   resources :attendances, except: [:show]
-  get 'attendances/list/:yyyymm' => "attendances#list"
+  get 'list/:yyyymm' => "attendances#list", as: "list"
 end
