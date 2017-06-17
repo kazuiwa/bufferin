@@ -1,16 +1,13 @@
 <%= render 'shared/errors', errors: @record.errors %>
-<div style="text-align: center; margin-top: 40px; margin-bottom: 40px;">
+<div style="text-align: center;">
   <h1>勤怠管理システム</h1>
 </div>
 <hr width="300"/>
-<div style="text-align: center; margin-top: 40px; margin-bottom: 40px;font-size: 25px;">
-  <div id="now_year"></div>
-  <div id="now_month_day"></div>
-  <div id="now_time"></div>
-</div>
-<hr width="300"/>
-<div style="text-align: center; margin-top: 50px;">
+<div style="text-align: center;">
 <%= form_for @record,:url => {:action => :create} do |f| %>
+  <div style="margin-right: 230px;">
+    <%= f.label :start_datetime, "出勤時間" %>
+  </div>
   <div>
   <%= f.datetime_select :start_datetime,
         start_year: 2016, end_year: Time.now.year,

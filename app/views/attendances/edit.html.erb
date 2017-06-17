@@ -2,6 +2,9 @@
 <h2><%= @record.start_datetime.strftime('%Y年%m月%d日') %></h2>
 <%= form_for @record,:url => {:action => :update} do |f| %>
     <div>
+      <%= f.label :start_datetime, "出勤時間" %>
+    </div>
+    <div>
       <%= f.time_select :start_datetime %>
     </div>
     <div>
