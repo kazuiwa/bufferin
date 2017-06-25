@@ -13,7 +13,9 @@
 ActiveRecord::Schema.define(version: 20170526140157) do
 
   create_table "records", force: :cascade do |t|
-    t.integer  "year_month"
+    t.string   "year"
+    t.string   "month"
+    t.string   "day"
     t.datetime "start_datetime"
     t.datetime "end_datetime"
     t.float    "working_hours"
