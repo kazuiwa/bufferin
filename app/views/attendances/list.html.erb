@@ -11,7 +11,7 @@
   <% @records.each do |record| %>
     <tr>
       <td><%= record.start_datetime.strftime('%d日') %></td>
-      <td><%= record.start_datetime.strftime('%H:%M') %>〜18:00</td>
+      <td><%= record.start_datetime.strftime('%H:%M') %>〜<%= record.end_datetime.strftime('%H:%M') %></td>
       <td>
         <%= link_to "編集", edit_attendance_path(record) %>
       </td>

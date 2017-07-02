@@ -13,6 +13,14 @@
         start_year: 2016, end_year: Time.now.year,
         use_month_numbers: true %>
   </div>
+  <div style="margin-right: 230px;">
+    <%= f.label :end_datetime, "退勤時間" %>
+  </div>
+  <div>
+    <%= f.datetime_select :end_datetime,
+                          start_year: 2016, end_year: Time.now.year,
+                          use_month_numbers: true %>
+  </div>
   <div>
     <%= f.submit '登録' %>
   </div>

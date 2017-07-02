@@ -39,7 +39,8 @@ class AttendancesController < ApplicationController
 
   def record_params
     params.require(:record).permit(
-        :start_datetime
+        :start_datetime,
+        :end_datetime
     )
   end
 end
