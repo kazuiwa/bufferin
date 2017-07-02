@@ -4,6 +4,7 @@ class Record < ApplicationRecord
   attr_accessor :year_month
 
   validate :check_start_datetime
+  validate :check_end_datetime
 
   scope :by_yyyymm, ->(yyyymm){
     if yyyymm.present? && yyyymm.length == 6
@@ -26,6 +27,13 @@ class Record < ApplicationRecord
     end
   end
 
+  # 退勤時間
+  def check_end_datetime
+    if end_datetime < start_datetime
+      errors.add(:end_datetime, "退勤時間が出勤時間より前の時間です。")
+    end
+  end
+
   #---------------------------------
   # インスタンスメソッド
   #---------------------------------
@@ -34,10 +42,12 @@ class Record < ApplicationRecord
     self.year_month = Time.now.strftime('%Y%m').to_i
   end
 
+  # 編集画面で使用する値をセット
   def set_edit_value
     self.year_month = (self.year + self.month).to_i
   end
 
+  # フォームに無い値を更新
   def update_with_regist_value
     self.year = self.start_datetime.strftime('%Y')
     self.month = self.start_datetime.strftime('%m')
